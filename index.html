@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Практична робота №4 — Keyboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<main class="page">
+  <header class="head">
+    <h1 class="head__title">Практична робота №4</h1>
+    <p class="head__sub">Keyboard (Grid) • Shadows • States</p>
+  </header>
+
+  <section class="kb">
+    <div class="shell">
+
+      <!-- top row -->
+      <div class="top">
+        <div class="top__f">
+          <button class="key key--sm" data-code="Escape">Esc</button>
+          <div class="gap"></div>
+
+          <button class="key key--sm" data-code="F1">F1</button>
+          <button class="key key--sm" data-code="F2">F2</button>
+          <button class="key key--sm" data-code="F3">F3</button>
+          <button class="key key--sm" data-code="F4">F4</button>
+
+          <div class="gap"></div>
+
+          <button class="key key--sm" data-code="F5">F5</button>
+          <button class="key key--sm" data-code="F6">F6</button>
+          <button class="key key--sm" data-code="F7">F7</button>
+          <button class="key key--sm" data-code="F8">F8</button>
+
+          <div class="gap"></div>
+
+          <button class="key key--sm" data-code="F9">F9</button>
+          <button class="key key--sm" data-code="F10">F10</button>
+          <button class="key key--sm" data-code="F11">F11</button>
+          <button class="key key--sm" data-code="F12">F12</button>
+        </div>
+
+        <div class="top__extra">
+          <button class="key key--xs" data-code="PrintScreen">Stamp</button>
+          <button class="key key--xs" data-code="ScrollLock">Bloc</button>
+          <button class="key key--xs" data-code="Pause">Pausa</button>
+          <button class="key key--xs" data-code="ContextMenu">Interr</button>
+        </div>
+
+        <div class="top__inds">
+          <div class="inds">
+            <div class="inds__col"><div class="inds__label">1</div><span class="led" id="led-num"></span></div>
+            <div class="inds__col"><div class="inds__label">A</div><span class="led" id="led-caps"></span></div>
+            <div class="inds__col"><div class="inds__label">↧</div><span class="led" id="led-scr"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- main row: alpha + right cluster -->
+      <div class="row">
+
+        <!-- ALPHA -->
+        <div class="alpha">
+          <div class="r r1">
+            <button class="key" data-code="Backquote">`</button>
+            <button class="key" data-code="Digit1">1</button>
+            <button class="key" data-code="Digit2">2</button>
+            <button class="key" data-code="Digit3">3</button>
+            <button class="key" data-code="Digit4">4</button>
+            <button class="key" data-code="Digit5">5</button>
+            <button class="key" data-code="Digit6">6</button>
+            <button class="key" data-code="Digit7">7</button>
+            <button class="key" data-code="Digit8">8</button>
+            <button class="key" data-code="Digit9">9</button>
+            <button class="key" data-code="Digit0">0</button>
+            <button class="key" data-code="Minus">-</button>
+            <button class="key" data-code="Equal">=</button>
+            <button class="key key--w2" data-code="Backspace">←</button>
+          </div>
+
+          <div class="r r2">
+            <button class="key key--w15" data-code="Tab">Tab</button>
+            <button class="key" data-code="KeyQ">Q</button>
+            <button class="key" data-code="KeyW">W</button>
+            <button class="key" data-code="KeyE">E</button>
+            <button class="key" data-code="KeyR">R</button>
+            <button class="key" data-code="KeyT">T</button>
+            <button class="key" data-code="KeyY">Y</button>
+            <button class="key" data-code="KeyU">U</button>
+            <button class="key" data-code="KeyI">I</button>
+            <button class="key" data-code="KeyO">O</button>
+            <button class="key" data-code="KeyP">P</button>
+            <button class="key" data-code="BracketLeft">[</button>
+            <button class="key" data-code="BracketRight">]</button>
+            <button class="key key--w15" data-code="Backslash">\</button>
+          </div>
+
+          <div class="r r3">
+            <button class="key key--w2 key--toggle" data-code="CapsLock" data-toggle="caps">Caps<br>Lock</button>
+            <button class="key" data-code="KeyA">A</button>
+            <button class="key" data-code="KeyS">S</button>
+            <button class="key" data-code="KeyD">D</button>
+            <button class="key" data-code="KeyF">F</button>
+            <button class="key" data-code="KeyG">G</button>
+            <button class="key" data-code="KeyH">H</button>
+            <button class="key" data-code="KeyJ">J</button>
+            <button class="key" data-code="KeyK">K</button>
+            <button class="key" data-code="KeyL">L</button>
+            <button class="key" data-code="Semicolon">;</button>
+            <button class="key" data-code="Quote">'</button>
+            <button class="key key--enter" data-code="Enter">Enter</button>
+          </div>
+
+          <div class="r r4">
+            <button class="key key--w25" data-code="ShiftLeft">Shift</button>
+            <button class="key" data-code="KeyZ">Z</button>
+            <button class="key" data-code="KeyX">X</button>
+            <button class="key" data-code="KeyC">C</button>
+            <button class="key" data-code="KeyV">V</button>
+            <button class="key" data-code="KeyB">B</button>
+            <button class="key" data-code="KeyN">N</button>
+            <button class="key" data-code="KeyM">M</button>
+            <button class="key" data-code="Comma">,</button>
+            <button class="key" data-code="Period">.</button>
+            <button class="key" data-code="Slash">/</button>
+            <button class="key key--w2" data-code="ShiftRight">Shift</button>
+          </div>
+
+          <div class="r r5">
+            <button class="key key--w125" data-code="ControlLeft">Ctrl</button>
+            <button class="key key--w125" data-code="AltLeft">Alt</button>
+            <button class="key key--space" data-code="Space">Space</button>
+            <button class="key key--w125" data-code="MetaRight">Alt Gr</button>
+            <button class="key key--w125" data-code="ControlRight">Ctrl</button>
+          </div>
+        </div>
+
+        <!-- RIGHT CLUSTER (nav+arrows left, numpad right) -->
+        <div class="right">
+          <div class="right__left">
+            <div class="nav">
+              <div class="nav__grid">
+                <button class="key key--sm2" data-code="Insert">Ins</button>
+                <button class="key key--sm2" data-code="Home">Home</button>
+                <button class="key key--sm2" data-code="PageUp">Pg↑</button>
+
+                <button class="key key--sm2" data-code="Delete">Canc</button>
+                <button class="key key--sm2" data-code="End">Fine</button>
+                <button class="key key--sm2" data-code="PageDown">Pg↓</button>
+              </div>
+            </div>
+
+            <div class="arw">
+              <div class="arw__grid">
+                <div></div>
+                <button class="key" data-code="ArrowUp">↑</button>
+                <div></div>
+                <button class="key" data-code="ArrowLeft">←</button>
+                <button class="key" data-code="ArrowDown">↓</button>
+                <button class="key" data-code="ArrowRight">→</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="num">
+            <div class="num__grid">
+              <button class="key key--sm2 key--toggle" data-code="NumLock" data-toggle="num">Bloc<br>Num</button>
+              <button class="key key--sm2" data-code="NumpadDivide">/</button>
+              <button class="key key--sm2" data-code="NumpadMultiply">*</button>
+              <button class="key key--sm2" data-code="NumpadSubtract">-</button>
+
+              <button class="key" data-code="Numpad7">7</button>
+              <button class="key" data-code="Numpad8">8</button>
+              <button class="key" data-code="Numpad9">9</button>
+              <button class="key key--tall" data-code="NumpadAdd">+</button>
+
+              <button class="key" data-code="Numpad4">4</button>
+              <button class="key" data-code="Numpad5">5</button>
+              <button class="key" data-code="Numpad6">6</button>
+
+              <button class="key" data-code="Numpad1">1</button>
+              <button class="key" data-code="Numpad2">2</button>
+              <button class="key" data-code="Numpad3">3</button>
+              <button class="key key--tall" data-code="NumpadEnter">Invio</button>
+
+              <button class="key key--wide" data-code="Numpad0">0</button>
+              <button class="key" data-code="NumpadDecimal">.</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="hint">Press keys on your real keyboard — it will highlight here.</p>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
